@@ -1,25 +1,36 @@
+<!DOCTYPE html>
 <html>
-    
     <head>
-
+        <title>Hunger Honcho</title>
+        <link href='https://fonts.googleapis.com/css?family=Belgrano' rel='stylesheet'>
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/styles.css')}}">
     </head>
-    
 	<body>
         <div>
-            <h1> Hunger Honcho </h1>
+            <h1>Hunger Honcho</h1>
         </div>
         <div>
-            <h2> New Restaurant </h2>
+            <h2>New Restaurant</h2>
         </div>
-        <div>
-            <form action = "{{url_for('newRestaurant')}}" method = 'post'>
-                <p> Name: </p>
-                    <input type = 'text' size = 30 name = 'name' placeholder = 'Enter Name Here...'>
-                    <input type = 'submit' value = 'Create'>
-                <a href = "{{url_for('showRestaurants')}}" > Cancel </a>
-            </form>
+        <div><hr/></div>
+        <div class="gap"></div>
+        <div class ="newRestaurantCard">
+            <div class="container">
+                <form action = "{{url_for('newRestaurant')}}" method = 'post'>
+                    <h3> Name: </h3>
+                        <div class="container">
+                            <input type = 'text' size = 30 name = 'name' placeholder = 'Enter Name Here...'>
+                        </div>
+                        <div class="container">
+                            <div class="column2">
+                                <input type = 'submit' value = 'Create'>
+                            </div>
+                            <div class="column2">
+                                <a href = "{{url_for('showRestaurants')}}" > Cancel </a>
+                            </div>
+                        </div>
+                </form>
+            </div>
         </div>
-
-    </body>
-    
+    </body>  
 </html>

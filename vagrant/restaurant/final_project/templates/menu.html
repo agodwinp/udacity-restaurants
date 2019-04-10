@@ -1,6 +1,9 @@
 <html>
     
     <head>
+        <title>Hunger Honcho</title>
+        <link href='https://fonts.googleapis.com/css?family=Belgrano' rel='stylesheet'>
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/styles.css')}}">
 
     </head>
     
@@ -8,6 +11,19 @@
         <div>
             <h1> Hunger Honcho </h1>
         </div>
+
+        <div class = 'flash'>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li> <strong> {{ message }} </strong> </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
+        </div>
+
         <div>
             <h2> {{restaurant.name}} Menu </h2>
         </div>
