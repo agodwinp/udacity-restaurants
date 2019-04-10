@@ -1,0 +1,36 @@
+<html>
+    
+    <head>
+
+    </head>
+    
+	<body>
+        <div>
+            <h1> Hunger Honcho </h1>
+        </div>
+        <div>
+            <h2> New Menu Item </h2>
+        </div>
+        <div>
+            <form action = "{{url_for('newMenuItem', restaurant_id=restaurant_id)}}" method = 'post'>
+                <dl>
+                    <dt>Name:</dt>
+                        <dd><input type ='text' size='30' name='name' placeholder = 'Enter Name Here...'></dd>
+                    <dt>Description:</dt>
+                        <dd><textarea name = 'description' rows='5' cols='40' placeholder = 'Enter Description Here...'></textarea></dd>
+                    <dt>Course:</dt>
+                        <dd><input type ='radio' name='course' value='Appetizer'checked >Appetizer</dd>
+                        <dd><input type ='radio' name='course' value='Entree'>Entree</dd>
+                        <dd><input type ='radio' name='course' value='Dessert'>Dessert</dd>
+                        <dd><input type ='radio' name='course' value='Beverage'>Beverage</dd>
+                    <dt>Price:</dt>
+                        <dd><input type = 'text' size = '8' name='price' placeholder = 'Enter Price Here...'></dd>
+                </dl>
+                <input type='submit' value='Create'>
+            </form>
+            <a href = "{{url_for('showMenu', restaurant_id=restaurant_id)}}" > Cancel </a>
+        </div>
+
+    </body>
+    
+</html>
