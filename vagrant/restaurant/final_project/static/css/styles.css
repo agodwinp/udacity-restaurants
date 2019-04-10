@@ -11,6 +11,19 @@ h1 {
 	font-weight: 100;
 }
 
+h2 {
+    text-align: center;
+    padding: 20px;
+	margin: 10px;
+    margin-top: 20px;
+    font-family: 'Belgrano', cursive;
+    color: grey;
+    font-size: 2rem;
+	font-weight: 100;
+}
+
+
+
 .col-1 {width: 8.33%;}
 .col-2 {width: 16.66%;}
 .col-3 {width: 25%;}
@@ -108,10 +121,15 @@ hr {
     height: 150px;
 }
 
-.column {
+.column3 {
   float: left;
   width: 33.33%;
 }
+
+.column2 {
+    float: left;
+    width: 50%;
+  }
 
 .restaurantCard a {
     background-color: #cccccc;
@@ -129,24 +147,84 @@ hr {
 /* unvisited link */
 a:link {
     color:white;
-  }
-  
-  /* visited link */
-  a:visited {
-    color: grey;
-  }
-  
-  /* mouse over link */
-  a:hover {
-    color: grey;
-  }
-  
-  /* selected link */
-  a:active {
-    color: grey;
-  }
+}
 
+/* visited link */
+a:visited {
+    color: grey;
+}
 
+/* mouse over link */
+a:hover {
+    color: grey;
+}
+
+/* selected link */
+a:active {
+    color: grey;
+}
+
+.newRestaurantCard {
+    background-color: #cce6ff ;
+    margin: auto;
+    width: 75%;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 3px 3px grey;
+    height: 250px;
+}
+
+input[type="text"] {
+    font-family: 'Belgrano', cursive;
+    font-size: 1rem;
+    border-radius: 7px;
+    padding: 5px;
+    margin: 5px;
+	border-style: ridge;
+	border-width: thin;
+    width: 100%;
+	box-sizing: border-box;
+	resize: vertical;
+	border-color: initial;
+}
+
+input[type="submit"] {
+    font-family: 'Belgrano', cursive;
+    font-size: 1rem;
+	border-radius: 10px;
+	padding: 10px;
+	border-style: ridge;
+	border-width: thin;
+	width: 50%;
+	box-sizing: border-box;
+	resize: vertical;
+	background-color: #cccccc;
+	display: block;
+    margin: auto;
+    box-shadow: 2px 2px black;
+}
+
+/* mouse over link */
+input[type='submit']:hover {
+    color: white;
+}
+
+.column2 a {
+    font-family: 'Belgrano', cursive;
+    font-size: 1rem;
+	border-radius: 10px;
+	padding: 10px;
+	border-style: ridge;
+	border-width: thin;
+	width: 50%;
+	box-sizing: border-box;
+	resize: vertical;
+	background-color: #ff704d;
+	display: block;
+    margin: auto;
+    box-shadow: 2px 2px black;
+
+}
 
 /*
 body {
