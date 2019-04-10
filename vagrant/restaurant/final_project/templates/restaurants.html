@@ -1,35 +1,73 @@
+<!DOCTYPE html>
 <html>
-
     <head>
-
+        <title>Hunger Honcho</title>
+        <link href='https://fonts.googleapis.com/css?family=Belgrano' rel='stylesheet'>
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/styles.css')}}">
     </head>
-    
 	<body>
-        <div>
+        <!-- Title -->
+        <div class="header">
             <h1> Hunger Honcho </h1>
         </div>
-        <p> 
-        Hunger Honcho is the Restaurant management application, turning the mess of restaurant management into a tasty delight!
-        </p>
-        <div>
-            <a href = "{{url_for('newRestaurant')}}" > New Restaurant </a>
+        <!-- Introductory text to the site -->
+        <div class="topText">
+            <p> 
+            Hunger Honcho is the Restaurant management application, turning the mess of restaurant management into a tasty delight!
+            </p>
         </div>
-
+        <!-- Flash messages -->
+        <div class="flash">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li> <strong> {{ message }} </strong> </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
+        </div>
+        <!-- New Restaurant Button -->
+        <div class="container">
+                <div class="createButton">
+                    <a href="{{url_for('newRestaurant')}}"> New Restaurant </a>
+                </div>
+        </div>
+        <div class="gap"></div>
+        <div><hr/></div>
+        <!-- Show Restaurants -->
         {% if restaurants %}
             {% for i in restaurants %}
-            <div>      
-                <h3>{{i.name}}</h3>
-                <a href = "{{url_for('showMenu', restaurant_id=i.id)}}" > Menu </a>
-                <a href = "{{url_for('editRestaurant', restaurant_id=i.id)}}" > Edit </a>
-                <a href = "{{url_for('deleteRestaurant', restaurant_id=i.id)}}" > Delete </a>
-            </div>
+            <div class="gap"></div>
+                <div class="restaurantCard">      
+                    <h3>{{i.name}}</h3>
+                    <div class="row">
+                        <div class="container">
+                            <div class="column">
+                                <div class="container">
+                                    <a href = "{{url_for('showMenu', restaurant_id=i.id)}}" > Menu </a>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="container">
+                                    <a href = "{{url_for('editRestaurant', restaurant_id=i.id)}}" > Edit </a>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="container">
+                                    <a href = "{{url_for('deleteRestaurant', restaurant_id=i.id)}}" > Delete </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div class="gap"></div>
             {% endfor %}
         {% else %}
             <div>
                 <h3> There are currently no restaurants...</h3>
             </div>
         {% endif %}
-
     </body>
-    
 </html>
