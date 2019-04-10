@@ -21,6 +21,26 @@ session = DBSession()
 #item =  {'name':'Cheese Pizza','description':'made with fresh cheese','price':'$5.99','course' :'Entree'}
 
 
+# JSON API Endpoints
+@app.route('/restaurants/JSON')
+def restaurantsJSON():
+    restaurants = session.query(Restaurant).all()
+    return jsonify(Restaurants=[i.serialize for i in restaurants])
+
+
+@app.route('/restaurants/<int:restaurant_id>/menu/JSON')
+def menuJSON(restaurant_id):
+    #restaurant = session.query(Restaurant).filter_by(id=restaurant_id).one()
+    items = session.query(MenuItem).filter_by(restaurant_id=restaurant_id)
+    return jsonify(MenuItems=[i.serialize for i in items])
+
+@app.route('/restaurants/<int:restaurant_id>/menu/<int:menu_id>/JSON')
+def menuItemJSON(restaurant_id, menu_id):
+    #restaurant = session.query(Restaurant).filter_by(id=restaurant_id).one()
+    menuItem = session.query(MenuItem).filter_by(id=menu_id).one()
+    return jsonify(MenuItem=menuItem.serialize)
+
+
 @app.route('/')
 @app.route('/restaurants')
 def showRestaurants(): # READ
@@ -34,6 +54,7 @@ def newRestaurant(): # CREATE
         newRestaurant = Restaurant(name=request.form['name'])
         session.add(newRestaurant)
         session.commit()
+        flash("Restaurant Successfully Created!")
         return redirect(url_for('showRestaurants'))
     else:
         return render_template('newRestaurant.html')
@@ -47,6 +68,7 @@ def editRestaurant(restaurant_id): # UPDATE
             editedRestaurant.name = request.form['name']
         session.add(editedRestaurant)
         session.commit()
+        flash("Restaurant Successfully Edited!")
         return redirect(url_for('showRestaurants'))
     else:
         return render_template('editRestaurant.html', restaurant_id=restaurant_id, restaurant=editedRestaurant)
@@ -58,6 +80,7 @@ def deleteRestaurant(restaurant_id): # DELETE
     if request.method == 'POST':
         session.delete(deletedRestaurant)
         session.commit()
+        flash("Restaurant Successfully Deleted!")
         return redirect(url_for('showRestaurants'))
     else:
         return render_template('deleteRestaurant.html', restaurant=deletedRestaurant)
@@ -77,6 +100,7 @@ def newMenuItem(restaurant_id): # CREATE
         newItem = MenuItem(name=request.form['name'], description=request.form['description'], price=request.form['price'], course=request.form['course'], restaurant_id=restaurant_id)
         session.add(newItem)
         session.commit()
+        flash("Menu Item Successfully Created!")
         return redirect(url_for('showMenu', restaurant_id=restaurant_id))
     else:
         return render_template('newMenuItem.html', restaurant_id=restaurant_id)
@@ -96,6 +120,7 @@ def editMenuItem(restaurant_id, menu_id): # UPDATE
             editedItem.course = request.form['course']
         session.add(editedItem)
         session.commit()
+        flash("Menu Item Successfully Edited!")
         return redirect(url_for('showMenu', restaurant_id=restaurant_id))
     else:
         return render_template('editMenuItem.html', restaurant_id=restaurant_id, menu_id=menu_id, item=editedItem)
@@ -107,11 +132,13 @@ def deleteMenuItem(restaurant_id, menu_id): # DELETE
     if request.method == 'POST':
         session.delete(deletedItem)
         session.commit()
+        flash("Menu Item Successfully Deleted!")
         return redirect(url_for('showMenu', restaurant_id=restaurant_id))
     else:
         return render_template('deleteMenuItem.html', restaurant_id=restaurant_id, menu_id=menu_id, item=deletedItem)
 
 
 if __name__ == '__main__':
+    app.secret_key = 'super_secret_key' # flask will use this to create sessions for our users
     app.debug = True
     app.run(host='0.0.0.0', port=5000)
