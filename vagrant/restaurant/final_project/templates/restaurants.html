@@ -1,0 +1,35 @@
+<html>
+
+    <head>
+
+    </head>
+    
+	<body>
+        <div>
+            <h1> Hunger Honcho </h1>
+        </div>
+        <p> 
+        Hunger Honcho is the Restaurant management application, turning the mess of restaurant management into a tasty delight!
+        </p>
+        <div>
+            <a href = "{{url_for('newRestaurant')}}" > New Restaurant </a>
+        </div>
+
+        {% if restaurants %}
+            {% for i in restaurants %}
+            <div>      
+                <h3>{{i.name}}</h3>
+                <a href = "{{url_for('showMenu', restaurant_id=i.id)}}" > Menu </a>
+                <a href = "{{url_for('editRestaurant', restaurant_id=i.id)}}" > Edit </a>
+                <a href = "{{url_for('deleteRestaurant', restaurant_id=i.id)}}" > Delete </a>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div>
+                <h3> There are currently no restaurants...</h3>
+            </div>
+        {% endif %}
+
+    </body>
+    
+</html>
