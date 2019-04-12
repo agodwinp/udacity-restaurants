@@ -1,17 +1,16 @@
+<!DOCTYPE html>
 <html>
-    
     <head>
         <title>Hunger Honcho</title>
         <link href='https://fonts.googleapis.com/css?family=Belgrano' rel='stylesheet'>
         <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/styles.css')}}">
-
     </head>
-    
+    <!-- Title -->
 	<body>
-        <div>
+        <div class="header">
             <h1> Hunger Honcho </h1>
         </div>
-
+        <!-- Flash Messages -->
         <div class = 'flash'>
             {% with messages = get_flashed_messages() %}
             {% if messages %}
@@ -23,22 +22,49 @@
             {% endif %}
             {% endwith %}
         </div>
-
+        <!-- Restaurant Name -->
         <div>
             <h2> {{restaurant.name}} Menu </h2>
         </div>
-        <div>
-            <a href = "{{url_for('newMenuItem', restaurant_id=restaurant_id)}}" > New Menu Item </a>
+        <!-- New Menu Item Button -->
+        <div class="container">
+            <div class="createButton">
+                <a href = "{{url_for('newMenuItem', restaurant_id=restaurant_id)}}" > New Menu Item </a>
+            </div>
         </div>
+        <div class="gap"></div>
+        <div><hr/></div>
+        <!-- Show Menu Items -->
         {% if items %}
             {% for i in items %}
-            <div>      
-                <h3> {{i.name}} </h3>
-                <p> {{i.description}} </p>
-                <p> {{i.course}} </p>
-                <p> {{i.price}} </p>
-                <a href = "{{url_for('editMenuItem', restaurant_id=restaurant_id, menu_id=i.id)}}" > Edit </a>
-                <a href = "{{url_for('deleteMenuItem', restaurant_id=restaurant_id, menu_id=i.id)}}"> Delete </a>
+            <div class="gap"></div>
+            <div class="menuCard">
+                <div class="menuContainer">
+                    <h3> {{i.name}} </h3>
+                    <div class="row">
+                            <p class="cardText"> <u>{{i.course}}</u> </p>
+                    </div>
+                    <div class="row">
+                        <p class="cardText"><i>{{i.description}}</i></p>
+                    </div>
+                    <div class="row">
+                        <p class="cardText"> {{i.price}} </p>
+                    </div>
+                    <div class="row">
+                        <div class="menuContainer">
+                            <div class="column2">
+                                <div class="container">
+                                    <a href = "{{url_for('editMenuItem', restaurant_id=restaurant_id, menu_id=i.id)}}" > Edit </a>
+                                </div>
+                            </div>
+                            <div class="column2">
+                                <div class="container">
+                                    <a class="cancel" href = "{{url_for('deleteMenuItem', restaurant_id=restaurant_id, menu_id=i.id)}}"> Delete </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             </br>
             </body>

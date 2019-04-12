@@ -83,7 +83,7 @@ def deleteRestaurant(restaurant_id): # DELETE
         flash("Restaurant Successfully Deleted!")
         return redirect(url_for('showRestaurants'))
     else:
-        return render_template('deleteRestaurant.html', restaurant=deletedRestaurant)
+        return render_template('deleteRestaurant.html', restaurant_id=restaurant_id, restaurant=deletedRestaurant)
 
 
 @app.route('/restaurants/<int:restaurant_id>')

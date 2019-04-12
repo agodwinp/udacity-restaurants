@@ -1,27 +1,39 @@
+<!DOCTYPE html>
 <html>
-    
     <head>
         <title>Hunger Honcho</title>
         <link href='https://fonts.googleapis.com/css?family=Belgrano' rel='stylesheet'>
         <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/styles.css')}}">
-
     </head>
-    
+    <!-- Title -->
 	<body>
-        <div>
+        <div class="header">
             <h1> Hunger Honcho </h1>
         </div>
+        <!-- Header -->
         <div>
             <h2> Delete Restaurant </h2>
         </div>
-        <div>
-            <form action = '#' method = 'post'>
-                <p> Are you sure you want to delete {{restaurant.name}}?</p>
-                    <input type = 'submit' value = 'Delete'>
-            </form>
-            <a href = "{{url_for('showRestaurants')}}" > Cancel </a>
+        <!-- Delete Restaurant -->
+        <div class="card">
+            <div class="menuContainer">
+                <form action = "{{url_for('deleteRestaurant', restaurant_id=restaurant_id)}}" method = 'post'>
+                    <div class="row">
+                        <p class="cardTextDelete"> Are you sure you want to <i><u>delete</u></i> {{restaurant.name}}?</p>
+                    </div>
+                    <div class="gap"></div>
+                    <div class="row">
+                        <div class="container">
+                            <div class="column2">
+                                <input type = 'submit' value = 'Delete'>
+                            </div>
+                            <div class="column2">
+                                <a class="cancel" href = "{{url_for('showRestaurants')}}" > Cancel </a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
-
     </body>
-    
 </html>

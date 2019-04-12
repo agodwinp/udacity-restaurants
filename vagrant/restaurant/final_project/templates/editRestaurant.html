@@ -1,26 +1,41 @@
+<!DOCTYPE html>
 <html>
-    
     <head>
         <title>Hunger Honcho</title>
         <link href='https://fonts.googleapis.com/css?family=Belgrano' rel='stylesheet'>
         <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/styles.css')}}">
-
     </head>
-    
+    <!-- Title -->
 	<body>
-        <div>
+        <div class="header">
             <h1> Hunger Honcho </h1>
         </div>
+        <!-- Header -->
         <div>
             <h2> Edit Restaurant </h2>
         </div>
-        <div>
-            <form action = "{{url_for('editRestaurant', restaurant_id=restaurant_id)}}" method = 'post'>
-                <p> Name: </p>
-                    <input type = 'text' size = 30 name = 'name' placeholder = '{{restaurant.name}}'>
-                    <input type = 'submit' value = 'Edit'>
-                    <a href = "{{url_for('showRestaurants')}}" > Cancel </a>
-            </form>
+        <!-- Edit Restaurant -->
+        <div class="editRestaurantCard">
+            <div class="container">
+                    <form action = "{{url_for('editRestaurant', restaurant_id=restaurant_id)}}" method = 'post'>
+                        <div class="row">
+                            <p class="cardText"> Name: </p>
+                        </div>
+                        <div class="row">
+                            <input type = 'text' size = 30 name = 'name' placeholder = '{{restaurant.name}}'>
+                        </div>
+                        <div class="row">
+                            <div class="menuContainer">
+                                <div class="column2">
+                                    <input type = 'submit' value = 'Confirm'>
+                                </div>
+                                <div class="column2">
+                                    <a class="cancel" href = "{{url_for('showRestaurants')}}" > Cancel </a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+            </div>
         </div>
 
     </body>

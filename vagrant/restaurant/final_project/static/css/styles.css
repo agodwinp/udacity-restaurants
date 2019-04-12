@@ -1,3 +1,8 @@
+body {
+    background: url("../images/sky.png");
+    background-repeat: no-repeat;
+    background-color: #9DD4ED;
+  }
 
 h1 {
     text-align: center;
@@ -17,12 +22,39 @@ h2 {
 	margin: 10px;
     margin-top: 20px;
     font-family: 'Belgrano', cursive;
-    color: grey;
+    color: black;
     font-size: 2rem;
 	font-weight: 100;
 }
 
+.cardText {
+    text-align: center;
+    padding: 5px;
+	margin: 5px;
+    font-family: 'Belgrano', cursive;
+    color: black;
+    font-size: 1rem;
+	font-weight: 100;
+}
 
+.fullFormText {
+    text-align: left;
+    margin-bottom: 0%;
+    font-family: 'Belgrano', cursive;
+    color: black;
+    font-size: 1rem;
+	font-weight: 100;
+}
+
+.cardTextDelete {
+    text-align: center;
+    padding: 5px;
+	margin: 5px;
+    font-family: 'Belgrano', cursive;
+    color: black;
+    font-size: 1.5rem;
+	font-weight: 100;
+}
 
 .col-1 {width: 8.33%;}
 .col-2 {width: 16.66%;}
@@ -43,13 +75,32 @@ h2 {
     padding: 10px;
 }
 
+.menuContainer {
+    margin: auto;
+    width: 75%;
+    padding: 10px;
+}
+
+.fullFormContainer {
+    margin: auto;
+    width: 95%;
+    padding: 10px;
+}
+
 .topText p {
     text-align: center;
     padding: 20px;
     margin: 10px;
     font-family: 'Belgrano', cursive;
-    color: grey;
+    color: black;
     font-size: 1.75rem;
+}
+
+p {
+    text-align: center;
+    font-family: 'Belgrano', cursive;
+    color: black;
+    font-size: 1rem;
 }
 
 .flash { 
@@ -76,8 +127,7 @@ a {
     padding: 10px;
 	margin: 10px;
     font-family: 'Belgrano', cursive;
-    color: white;
-    text-shadow: 3px 3px grey;
+    color: black;
     font-size: 1rem;
 	font-weight: 100;
 }
@@ -100,7 +150,6 @@ hr {
     display: block;
     height: 1px;
     border: 0;
-    border-top: 1px solid #ccc;
     margin: 1em 0;
     padding: 0;
 }
@@ -111,7 +160,7 @@ hr {
     height: 200px;
 }
 
-.restaurantCard {
+.card {
     background-color: #cce6ff ;
     margin: auto;
     width: 75%;
@@ -119,6 +168,36 @@ hr {
     border-radius: 20px;
     box-shadow: 3px 3px grey;
     height: 150px;
+}
+
+.fullFormCard {
+    background-color: #cce6ff ;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 3px 3px grey;
+    height: 560px;
+}
+
+.editRestaurantCard {
+    background-color: #cce6ff ;
+    margin: auto;
+    width: 75%;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 3px 3px grey;
+    height: 175px;
+}
+
+.menuCard {
+    background-color: #cce6ff ;
+    margin: auto;
+    width: 75%;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 3px 3px grey;
+    height: 275px;
 }
 
 .column3 {
@@ -131,13 +210,12 @@ hr {
     width: 50%;
   }
 
-.restaurantCard a {
+.card a {
     background-color: #cccccc;
     margin: auto;
     padding: 10px;
     font-family: 'Belgrano', cursive;
-    color: white;
-    text-shadow: 1px 1px grey;
+    color: black;
     font-size: 1rem;
     font-weight: 20;
     border-radius: 10px;
@@ -146,17 +224,20 @@ hr {
 
 /* unvisited link */
 a:link {
-    color:white;
-}
-
-/* visited link */
-a:visited {
-    color: grey;
+    color: black;
 }
 
 /* mouse over link */
 a:hover {
-    color: grey;
+    color: white;
+}
+
+.column2 a:hover {
+    color: white;
+}
+
+.column3 a:hover {
+    color: white;
 }
 
 /* selected link */
@@ -188,6 +269,20 @@ input[type="text"] {
 	border-color: initial;
 }
 
+textarea {
+    font-family: 'Belgrano', cursive;
+    font-size: 1rem;
+    width: 100%;
+    margin: 5px;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 7px;
+    border-style: ridge;
+    border-width: thin;
+    resize: vertical;
+	border-color: initial;
+  }
+
 input[type="submit"] {
     font-family: 'Belgrano', cursive;
     font-size: 1rem;
@@ -210,6 +305,23 @@ input[type='submit']:hover {
 }
 
 .column2 a {
+    color: black;
+    font-family: 'Belgrano', cursive;
+    font-size: 1rem;
+	border-radius: 10px;
+	padding: 10px;
+	border-style: ridge;
+	border-width: thin;
+	width: 50%;
+	box-sizing: border-box;
+	resize: vertical;
+	background-color: #cccccc;
+	display: block;
+    margin: auto;
+    box-shadow: 2px 2px black;
+}
+
+.column2 .cancel {
     font-family: 'Belgrano', cursive;
     font-size: 1rem;
 	border-radius: 10px;
@@ -223,7 +335,6 @@ input[type='submit']:hover {
 	display: block;
     margin: auto;
     box-shadow: 2px 2px black;
-
 }
 
 /*
