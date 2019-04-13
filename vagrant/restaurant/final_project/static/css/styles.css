@@ -104,7 +104,14 @@ p {
 }
 
 .flash { 
-    background: #cee5F5;
+    background: white;
+    opacity: 0.8;
+    border-radius: 20px;
+}
+
+.flash h3 {
+    color: black;
+    opacity: 1;
 }
 
 .createButton {
@@ -114,7 +121,7 @@ p {
     height: 50%;
     padding: 10px;
     border-radius: 10px;
-    box-shadow: 2px 2px grey;
+    box-shadow: 2px 2px black;
 }
 
 a {
@@ -166,7 +173,7 @@ hr {
     width: 75%;
     padding: 10px;
     border-radius: 20px;
-    box-shadow: 3px 3px grey;
+    box-shadow: 3px 3px black;
     height: 150px;
 }
 
@@ -211,7 +218,7 @@ hr {
   }
 
 .card a {
-    background-color: #cccccc;
+    background-color:#DEDEDE;
     margin: auto;
     padding: 10px;
     font-family: 'Belgrano', cursive;
@@ -382,10 +389,7 @@ a {
     background-color: #333333;
 }
 
-.header {
-    left:50%;
-    text-align: center;
-}
+
 .name {
     width:50%;
     display: inline-block;
